@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>js cpurse</title>
+    <style>
+        #container {
+            width: 40%;
+        }
+
+        img {
+            width: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        
+        <img src="./assets/img/card-2.jpg" id="img1" alt="image" onmouseover="increase()" onmouseout="decrease()" >
+        
+    </div>
+
+
+</body>
+
+<script>
+    let ID;
+    let intervalID;
+    let width = 500;
+    let unit = 2;
+
+    function increase() {
+        clearInterval(intervalID);
+        ID = setInterval(expand, 20);
+    }
+
+    function expand() {
+        if(width < 600) {
+            width = width + unit;
+            document.getElementById("img1").width = width;
+        }else {
+            clearInterval(ID);
+        }
+    }
+
+    function decrease() {
+        clearInterval(ID);
+        intervalID = setInterval(shrink, 20);
+    }
+     
+    function shrink() {
+        if(width > 500) {
+            width = width - unit;
+            document.getElementById("img1").width = width;
+        }else {
+            clearInterval(intervalID);
+        }
+    }
+</script>
+
+</html>
